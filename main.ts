@@ -63,9 +63,33 @@
 //     y:2
 // })
 
-import {Point} from './point' //import class Point from module
+// import {Point} from './point' //import class Point from module
 
 //module in typescript is different from module of angular
-let point = new Point(1,2)
+// let point = new Point(1,2)
 
-point.draw()
+// point.draw()
+
+class Like{
+    constructor(private _likeNum:number){}
+
+    increaseLike(value){
+        if(this._likeNum+value>=20){
+            return this._likeNum = 0
+        }
+     
+     
+      return this._likeNum = this._likeNum+value
+    }
+}
+const counter = new Like(0)
+
+function updateLike(){
+   
+    counter.increaseLike(3)
+
+  
+    // counter.likeNum = 1    
+    console.log(counter)
+}
+

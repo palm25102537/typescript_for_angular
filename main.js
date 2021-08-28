@@ -9,20 +9,60 @@
 // a=1
 // a=true
 // a="a"
-var a;
-var b;
-var c;
-var d;
-var e = [1, 2, 3];
-var f = [1, true, 'a'];
+// let a:number;
+// let b:boolean;
+// let c:string;
+// let d:any;
+// let e:number[] = [1,2,3];
+// let f:any[] = [1,true,'a'] 
 // const colorRed = 0;
 // const colorGreen = 1;
 // const colorBlue =2;
-var Color;
-(function (Color) {
-    Color[Color["Red"] = 0] = "Red";
-    Color[Color["Green"] = 1] = "Green";
-    Color[Color["Blue"] = 2] = "Blue";
-    Color[Color["Purple"] = 3] = "Purple";
-})(Color || (Color = {}));
-var backgroundColor = Color.Red;
+// enum Color {Red =0,Green=1,Blue=2,Purple=3}
+// let backgroundColor = Color.Red;
+// type assertion
+// let message ="abc";
+// let endWithC=(<string>message).endsWith('c');
+// let alterWay=(message as string).endsWith('c');
+//Custom type
+//inline annotation
+// let drawpoint = (point:number)=>{
+//     //...
+// }
+// let drawpoint = (point:{x:number,y:number})=>{
+//     //...
+// }
+// interface
+// interface Point{
+//     x:number,
+//     y:number,
+// }
+// let drawPoint =(point:Point)=>{
+//     //..
+// }
+// drawPoint({
+//     x:1
+//     y:2
+// })
+// import {Point} from './point' //import class Point from module
+//module in typescript is different from module of angular
+// let point = new Point(1,2)
+// point.draw()
+var Like = /** @class */ (function () {
+    function Like(_likeNum) {
+        this._likeNum = _likeNum;
+    }
+    Like.prototype.increaseLike = function (value) {
+        if (this._likeNum + value >= 20) {
+            return this._likeNum = 0;
+        }
+        return this._likeNum = this._likeNum + value;
+    };
+    return Like;
+}());
+var counter = new Like(0);
+function updateLike() {
+    counter.increaseLike(3);
+    // counter.likeNum = 1    
+    console.log(counter);
+}
